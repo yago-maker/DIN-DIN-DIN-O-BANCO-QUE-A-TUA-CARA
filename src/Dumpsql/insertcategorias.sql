@@ -1,0 +1,20 @@
+insert into categorias
+(descricao) 
+values 
+('Alimentacao'),
+('Assinaturas_e_Servicos'),
+('Casa'),
+('Mercado'),
+('Cuidados_Pessoais'),
+('Educacao'),
+('Familia'),
+('Lazer'),
+('Pets'),
+('Presentes'),
+('Roupas'),
+('Saude'),
+('Transporte'),
+('Salario'),
+('Vendas'),g
+('Outras_receitas'),
+('Outras_despesas')
