@@ -1,19 +1,19 @@
-const pool = require('../conexao')
+const pool = require('../../conexao')
 const bcrypt = require('bcrypt');
 
 
 const cadastrarUsuario = async (req, res) => {
   const {nome, email, senha } = req.body; 
 
+
+  const emailExiste = await pool.query('select * from usuarios where email = $1', [email]);
+
+  if(emailExiste.rowCount > 0){
+     return res.status(400).json({mensagem: 'Este email ja existe'})
+   }
+
   try {
       
-    // vou fazer um midd pra essa validação
-    // const emailExiste = await pool.query('select * from usuarios where email = $1', [email]);
-
-    // if(emailExiste.rowCount > 0){
-    //    return res.stauts(400).json({mensagem: 'Este email ja existe'})
-    // }
-
     const senhaCriptografada = await bcrypt.hash(senha, 10);
     
            const query = `
