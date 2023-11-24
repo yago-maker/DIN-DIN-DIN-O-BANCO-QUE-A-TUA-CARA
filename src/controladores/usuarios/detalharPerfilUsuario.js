@@ -1,8 +1,5 @@
-const pool = require('../../conexao')
+const pool = require("../../conexao");
 
-
-const detalharPerfilUsuario = (req, res) => {
-
-}
+const detalharPerfilUsuario = (req, res) => {};
 
 module.exports = detalharPerfilUsuario;
