@@ -1,6 +1,7 @@
 const pool = require("../../conexao");
 
 const detalharPerfilUsuario = async (req, res) => {
+  
   try {
     const query = "select * from usuarios where id = $1";
 
