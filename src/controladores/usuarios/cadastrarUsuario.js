@@ -4,13 +4,25 @@ const bcrypt = require("bcrypt");
 const cadastrarUsuario = async (req, res) => {
   const { nome, email, senha } = req.body;
 
+  if (!nome) {
+    return res.status(400).json({ mensagem: "É necessário informar o nome." });
+  }
+
+  if (!email) {
+    return res.status(400).json({ mensagem: "É necessário informar o email." });
+  }
+
+  if (!senha) {
+    return res.status(400).json({ mensagem: "É necessário informar a senha." });
+  }
+
   const emailExiste = await pool.query(
     "select * from usuarios where email = $1",
     [email]
   );
 
   if (emailExiste.rowCount > 0) {
-    return res.status(400).json({ mensagem: "Este email ja existe" });
+    return res.status(400).json({ mensagem: "Este email ja existe." });
   }
 
   try {
@@ -27,7 +39,7 @@ const cadastrarUsuario = async (req, res) => {
 
     return res.status(201).json(usuario);
   } catch (error) {
-    return res.status(500).json({ message: "Erro interno do servidor" });
+    return res.status(500).json({ message: "Erro interno do servidor!!!" });
   }
 };
 

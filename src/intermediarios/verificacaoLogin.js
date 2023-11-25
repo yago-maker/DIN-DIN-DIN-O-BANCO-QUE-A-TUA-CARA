@@ -14,7 +14,7 @@ const verificacaoLogin = async (req, res, next) => {
   try {
     const { id } = jwt.verify(token, senhaJwt);
 
-    const { rows, rowCount } = pool.query(
+    const { rows, rowCount } = await pool.query(
       "select * from usuarios where id = $1",
       [id]
     );
@@ -22,6 +22,7 @@ const verificacaoLogin = async (req, res, next) => {
     if (rowCount === 0) {
       return res.status(401).json({ mensagem: "Não autorizado" });
     }
+
     const { senha, ...usuario } = rows[0];
 
     req.usuario = usuario;
