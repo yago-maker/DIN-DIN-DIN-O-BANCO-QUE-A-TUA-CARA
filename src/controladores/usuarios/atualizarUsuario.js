@@ -47,7 +47,7 @@ const atualizarUsuario = async (req, res) => {
       id,
     ]);
 
-    return res.status(204).send();
+    return res.status(204).send(atualizar);
   } catch (error) {
     return res.status(500).json({ message: "Erro interno do servidor!!!" });
   }

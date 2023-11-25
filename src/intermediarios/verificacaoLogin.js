@@ -6,7 +6,7 @@ const verificacaoLogin = async (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
-    return res.status(400).json({ mensagem: "Não autorizado" });
+    return res.status(401).json({ mensagem: "Não autorizado" });
   }
 
   const token = authorization.split(" ")[1];
