@@ -32,13 +32,10 @@ const listarTransacoes = async (req, res) => {
       return res.status(200).json([]);
     }
 
-    const transacoesQuery = SELECT t.id, t.tipo, t.descricao, t.valor, t.data, t.usuario_id, t.categoria_id, c.descricao AS categoria_nome
+    const transacoesQuery = `SELECT t.id, t.tipo, t.descricao, t.valor, t.data, t.usuario_id, t.categoria_id, c.descricao AS categoria_nome
    FROM transacoes t
    JOIN categorias c ON t.categoria_id = c.id
-   Where t.usuario_id = $1 AND t.categoria_id IN (${arrayCategoriaId.join(
-     ", "
-   )})
-   ;
+   Where t.usuario_id = $1 AND t.categoria_id IN (${arrayCategoriaId.join(", ")})`;
 
     const transacoes = await pool.query(transacoesQuery, [id]);
 
