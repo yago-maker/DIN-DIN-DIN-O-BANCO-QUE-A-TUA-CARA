@@ -8,8 +8,6 @@ const obterExtratoTransacoes = async (req, res) => {
 
     const entrada = await pool.query(queryEntrada, [idUsuario, 'entrada']);
 
-    console.log(entrada.rows);
-
     const querySaida = `select sum(valor) from transacoes where usuario_id = $1 and tipo = $2`
 
     const saida = await pool.query(querySaida, [idUsuario, 'saida']);
