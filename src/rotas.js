@@ -10,6 +10,7 @@ const detalharTransacao = require("./controladores/transacoes/detalharTransacao"
 const cadastrarTransacao = require("./controladores/transacoes/cadastrarTransacao");
 const atualizarTransacao = require("./controladores/transacoes/atualizarTransacao");
 const excluirTransacao = require("./controladores/transacoes/excluirTransacao");
+const obterExtratoTransacoes = require("./controladores/transacoes/obterExtratoTransacoes");
 
 const rotas = express();
 
@@ -22,6 +23,7 @@ rotas.get("/usuario", detalharPerfilUsuario);
 rotas.put("/usuario", atualizarUsuario);
 rotas.get("/categoria", listarCategorias);
 rotas.get("/transacao", listarTransacoes);
+rotas.get("/transacao/extrato", obterExtratoTransacoes);
 rotas.get("/transacao/:id", detalharTransacao);
 rotas.post("/transacao", cadastrarTransacao);
 rotas.put("/transacao/:id", atualizarTransacao);
