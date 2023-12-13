@@ -14,7 +14,7 @@ YAGO DEV-MAKER - !!!
 
 Seu papel é construir uma RESTful API que permita:
 
-- Cadastrar Usuário
+- Cadastrar Usuáriogit add origin 
 - Fazer Login
 - Detalhar Perfil do Usuário Logado
 - Editar Perfil do Usuário Logado
