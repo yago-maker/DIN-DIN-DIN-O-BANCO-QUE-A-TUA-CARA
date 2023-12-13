@@ -1,8 +1,7 @@
 YAGO DEV-MAKER - !!!
 
-# Desafio Módulo 3 - Backend
-# Yago &  Reuel
-## Como entregar?
+ Desafio Módulo 3 - Backend
+
 
 - [ ] Faça o fork desse repositório para o seu GitHub
 - [ ] Clone o seu repositório em sua máquina
